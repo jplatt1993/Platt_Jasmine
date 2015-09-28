@@ -1,0 +1,334 @@
+<html>
+<head>
+<title>Fruity Loops</title>
+</head>
+
+<style>
+.fruit{
+max-width: 300px;
+
+
+}
+
+</style>
+
+
+
+
+
+<body>
+<h1>What fruit are you?</h1>
+<blockquote>
+<form>
+<br><h3>Choose a utensil</h3></br>
+
+    
+    <input type="radio" name="utensil" id="Spoon" value="Spoon"> <label for="Spoon">Spoon</label> 
+    <br><input type="radio" name="utensil" id="Spork" value="Spork"> <label for="spork">Spork</label> 
+    <br><input type="radio" name="utensil" id="Butcher Knife" value="Butcher Knife"> <label for="Butcher Knife">Butcher Knife</label> 
+    <br><input type="radio" name="utensil" id="Fork" value="Fork"> <label for="Fork">Fork</label>
+
+<br><h3>Choose a time of day</h3></br>
+
+    <input type="radio" name="time" id="Night" value="Night"> <label for="Night">Night</label> 
+    <br><input type="radio" name="time" id="Twilight" value="Twilight"> <label for="Twilight">Twilight</label> 
+    <br><input type="radio" name="time" id="Dawn" value="Dawn"> <label for="Dawn">Dawn</label> 
+    <br><input type="radio" name="time" id="Dusk" value="Dusk"> <label for="Dusk">Dusk</label>
+
+<br><h3>Choose a place</h3></br>
+
+    <input type="radio" name="place" id="England" value="England"> <label for="England">England</label> 
+    <br><input type="radio" name="place" id="Paris" value="Paris"> <label for="Paris">Paris</label> 
+    <br><input type="radio" name="place" id="Hawaii" value="Hawaii"> <label for="Hawaii">Hawaii</label> 
+    <br><input type="radio" name="place" id="Japan" value="Japan"> <label for="Japan">Japan</label>
+
+<br><h3>Choose a device</h3></br>
+
+    <input type="radio" name="device" id="Apple" value="Apple"> <label for="apple">Apple</label> 
+    <br><input type="radio" name="device" id="Samsung" value="Samsung"> <label for="Samsung">Samsung</label> 
+    <br><input type="radio" name="device" id="LG" value="LG"> <label for="LG">LG</label> 
+    <br><input type="radio" name="device" id="Windows" value="Windows"> <label for="Windows">Windows</label>
+
+<br><h3>Choose a car</h3></br>
+
+    <input type="radio" name="car" id="Ford" value="Ford"> <label for="Ford">Ford</label> 
+    <br><input type="radio" name="car" id="Tesla" value="Tesla"> <label for="Tesla">Tesla</label> 
+    <br><input type="radio" name="car" id="Honda" value="Honda"> <label for="Honda">Honda</label> 
+    <br><input type="radio" name="car" id="Toyota" value="Toyota"> <label for="Toyota">Toyota</label>
+
+<br><h3>Choose a color</h3></br>
+
+    <input type="radio" name="color" id="Green" value="Green"> <label for="Green">Green</label> 
+    <br><input type="radio" name="color" id="Red" value="Red"> <label for="Red">Red</label> 
+    <br><input type="radio" name="color" id="Orange" value="Orange"> <label for="Orange">Orange</label> 
+    <br><input type="radio" name="color" id="Pink" value="Pink"> <label for="Pink">Pink</label>
+
+<br><h3>Choose a breakfast item</h3></br>
+
+    <input type="radio" name="breakfast" id="Toast" value="Toast"> <label for="Toast">Toast</label> 
+    <br><input type="radio" name="breakfast" id="Eggs" value="Eggs"> <label for="Eggs">Eggs</label> 
+    <br><input type="radio" name="breakfast" id="Waffles" value="Waffles"> <label for="Waffles">Waffles</label> 
+    <br><input type="radio" name="breakfast" id="Bacon" value="Bacon"> <label for="Bacon">Bacon</label>
+
+<br><h3>Choose a month</h3></br>
+
+    <input type="radio" name="month" id="August" value="August"> <label for="August">August</label> 
+    <br><input type="radio" name="month" id="April" value="April"> <label for="April">April</label> 
+    <br><input type="radio" name="month" id="June" value="June"> <label for="June">June</label> 
+    <br><input type="radio" name="month" id="February" value="February"> <label for="February">February</label>
+
+<br><h3>If water, then</h3></br>
+
+    <input type="radio" name="water" id="Ocean" value="Ocean"> <label for="Ocean">Ocean</label> 
+    <br><input type="radio" name="water" id="Pond" value="Pond"> <label for="Pond">Pond</label> 
+    <br><input type="radio" name="water" id="Stream" value="Stream"> <label for="Stream">Stream</label> 
+    <br><input type="radio" name="water" id="Lake" value="Lake"> <label for="Lake">Lake</label>
+
+
+<br><h3>Choose a fruit</h3></br>
+    <input type="radio" name="yum" id="Apple" value="Apple"> <label for="Apple">Apple</label> 
+    <br><input type="radio" name="yum" id="Tomato" value="Tomato"> <label for="Tomato">Tomato</label> 
+    <br><input type="radio" name="yum" id="Pineapple" value="Pineapple"> <label for="Pineapple">Pineapple</label> 
+    <br><input type="radio" name="yum" id="Strawberry" value="Strawberry"> <label for="Strawberry">Strawberry</label>
+
+    
+<br><br><input type="button" id="quizButton" value="Submit">
+  </form>
+  </blockquote>
+
+<p id='fruitParagraph'></p>
+</body>
+<script>
+  var myFruit = ['Apple','Tomato','Pineapple','Strawberry'];
+  var points = [0,0,0,0];
+  
+  function init() {
+    var button = document.getElementById('quizButton');
+    button.onclick = checkQuiz;r
+  }
+  function checkQuiz() {
+    var utensil;
+    var time;
+    var place;
+    var device;
+    var car;
+    var color;
+    var breakfast;
+    var month;
+    var water;
+    var yum;
+
+ var inputs = document.getElementsByName('utensil');
+    fruit = findValue(inputs);
+    switch(fruit) {
+      case 'Spoon': 
+        points[0]++;
+        break;
+      case 'Spork': 
+        points[1]++;
+        break;
+      case 'Butcher Knife': 
+        points[2]++;
+        break;
+      case 'Fork': 
+        points[3]++;
+        break;
+    }
+    var inputs = document.getElementsByName('time');
+    fruit = findValue(inputs);
+      switch(fruit) {
+      case 'Night': 
+        points[0]++;
+        break;
+      case 'Twilight': 
+        points[1]++;
+        break;
+      case 'Dawn': 
+        points[2]++;
+        break;
+      case 'Dusk': 
+        points[3]++;
+        break;
+    }
+        var inputs = document.getElementsByName('place');
+    fruit = findValue(inputs);
+      switch(fruit) {
+      case 'England': 
+        points[0]++;
+        break;
+      case 'Paris': 
+        points[1]++;
+        break;
+      case 'Hawaii': 
+        points[2]++;
+        break;
+      case 'Japan': 
+        points[3]++;
+        break;
+    }
+        var inputs = document.getElementsByName('device');
+    fruit = findValue(inputs);
+      switch(fruit) {
+      case 'Apple': 
+        points[0]++;
+        break;
+      case 'Samsung': 
+        points[1]++;
+        break;
+      case 'LG': 
+        points[2]++;
+        break;
+      case 'Windows': 
+        points[3]++;
+        break;
+    }
+        var inputs = document.getElementsByName('car');
+    fruit = findValue(inputs);
+      switch(fruit) {
+      case 'Ford': 
+        points[0]++;
+        break;
+      case 'Tesla': 
+        points[1]++;
+        break;
+      case 'Honda': 
+        points[2]++;
+        break;
+      case 'Toyota': 
+        points[3]++;
+        break;
+    }
+        var inputs = document.getElementsByName('color');
+    fruit = findValue(inputs);
+      switch(fruit) {
+      case 'Green': 
+        points[0]++;
+        break;
+      case 'Red': 
+        points[1]++;
+        break;
+      case 'Orange': 
+        points[2]++;
+        break;
+      case 'Pink': 
+        points[3]++;
+        break;
+    }
+        var inputs = document.getElementsByName('breakfast');
+    fruit = findValue(inputs);
+      switch(fruit) {
+      case 'Toast': 
+        points[0]++;
+        break;
+      case 'Eggs': 
+        points[1]++;
+        break;
+      case 'Waffles': 
+        points[2]++;
+        break;
+      case 'Bacon': 
+        points[3]++;
+        break;
+    }
+        var inputs = document.getElementsByName('month');
+    fruit = findValue(inputs);
+      switch(fruit) {
+      case 'August': 
+        points[0]++;
+        break;
+      case 'April': 
+        points[1]++;
+        break;
+      case 'June': 
+        points[2]++;
+        break;
+      case 'February': 
+        points[3]++;
+        break;
+    }
+        var inputs = document.getElementsByName('water');
+    fruit = findValue(inputs);
+      switch(fruit) {
+      case 'Ocean': 
+        points[0]++;
+        break;
+      case 'Pond': 
+        points[1]++;
+        break;
+      case 'Stream': 
+        points[2]++;
+        break;
+      case 'Lake': 
+        points[3]++;
+        break;
+    }
+        var inputs = document.getElementsByName('yum');
+    fruit = findValue(inputs);
+      switch(fruit) {
+      case 'Apple': 
+        points[0]++;
+        break;
+      case 'Tomato': 
+        points[1]++;
+        break;
+      case 'Pineapple': 
+        points[2]++;
+        break;
+      case 'Strawberry': 
+        points[3]++;
+        break;
+      }
+
+    maxScore = 0;
+
+    maxIndex = 0;
+
+    for (var i=0; i<points.length; i++) {
+      if (points[i] > maxScore) {
+
+        maxIndex = i;
+      }
+    }
+
+    fruit = myFruit[maxIndex];
+
+    displayFruit(fruit);
+  }
+  function findValue(inputs) {
+    var checked;
+    for (var i=0; i<inputs.length; i++) {
+      if (inputs[i].checked) {
+        checked = inputs[i].value;
+        return(checked);
+      }
+    }
+
+  }
+  function displayFruit(fruit) {
+    var image = document.createElement('img');
+    image.className = 'fruit';
+    var source = document.getElementById('fruitParagraph');
+    var text = 'Congratulations! You\'re a ' + fruit + '!';
+    
+    switch(fruit) {
+      case 'Apple': 
+        image.src = 'http://i59.tinypic.com/72sxeq.jpg';
+        break;
+      case 'Tomato': 
+        image.src = 'http://i61.tinypic.com/2irn6et.jpg';
+        break;
+      case 'Pineapple': 
+        image.src = 'http://i58.tinypic.com/2vm94eh.jpg';
+        break;
+      case 'Strawberry': 
+        image.src = 'http://i60.tinypic.com/2ujt7q8.jpg';
+        break;
+      default:
+        image.src = 'broken.jpg';
+    }
+    source.appendChild(image);
+    source.innerHTML += '<br>' + text;
+  }
+  window.onload = init;
+</script>
+</html>
